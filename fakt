@@ -20,3 +20,25 @@ while k != 1:
     print("Hello world")
 
 #1. óra vége
+
+szammenny = int(input("megadott számok mennyisége: "))
+tomb = []
+
+for i in range(0, szammenny):
+    szam = float(input("kerem az " + str(i+1) + ". számot: "))
+    tomb.append(szam)
+print(tomb)
+
+seged1 = -9898989898989988999
+for i in tomb:
+    if i > seged1:
+        seged1 = i
+
+seged2 = 0
+for i in tomb:
+    seged2 += i
+seged2 = seged2/float(szammenny)
+
+print("a legnagyobb megadott szám", seged1, "az átlaguk", seged2)
+tomb.sort()
+print("a tömb rendezve: {}".format(tomb))
