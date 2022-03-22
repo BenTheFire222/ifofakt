@@ -1,0 +1,22 @@
+tomb = [1,5,13,2,25,4]
+def csere (_tomb, _i1, _i2):
+    seged = _tomb[_i1]
+    _tomb[_i1] = _tomb[_i2]
+    _tomb[_i2] = seged
+
+i = 0
+
+while i < len(tomb)-1:
+    j = i+1
+    while j < len(tomb):
+        if tomb[i] > tomb[j]:
+            csere(tomb, i, j)
+        j += 1
+    i += 1
+print(tomb)
+
+k = 0
+while k != 1:
+    print("Hello world")
+
+#1. óra vége
