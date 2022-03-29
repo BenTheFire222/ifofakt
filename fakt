@@ -74,3 +74,22 @@ i= 0
 while i < len(tomb):
     print("{} : {} óra".format(tomb[i],orak[i]))
     i += 1
+
+
+
+
+
+#Ugyanezen feladat szótárral:
+
+
+
+
+
+
+oraim = {"hétfő":0, "kedd":0, "szerda":0, "csütörtök":0, "péntek":0}
+for k in oraim:
+    oraim[k] = int(input("{}i órák száma: ".format(k)))
+
+print("Óráid:")
+for k, v in oraim.items():
+    print("{}: {} óra".format(k, v))
