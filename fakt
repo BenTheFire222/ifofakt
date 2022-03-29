@@ -19,7 +19,15 @@ k = 0
 while k != 1:
     print("Hello world")
 
+
+
+
+
 #1. óra vége
+
+
+
+
 
 szammenny = int(input("megadott számok mennyisége: "))
 tomb = []
@@ -42,3 +50,27 @@ seged2 = seged2/float(szammenny)
 print("a legnagyobb megadott szám", seged1, "az átlaguk", seged2)
 tomb.sort()
 print("a tömb rendezve: {}".format(tomb))
+
+
+
+
+#napok-orak ket tomb
+
+
+
+
+
+tomb = ["hetfo","kedd","szerda","csutortok","pentek"]
+orak = []
+i = 0
+
+while i < len(tomb):
+    a = int(input("kérem a {}i órák számát: ".format(tomb[i])))
+    orak.append(a)
+    i += 1
+
+i= 0
+
+while i < len(tomb):
+    print("{} : {} óra".format(tomb[i],orak[i]))
+    i += 1
