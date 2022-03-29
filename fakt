@@ -93,3 +93,39 @@ for k in oraim:
 print("Óráid:")
 for k, v in oraim.items():
     print("{}: {} óra".format(k, v))
+
+
+
+
+
+
+#def vajonezegyszamexdxdxd
+
+
+
+
+
+
+
+def szame(_sor):
+    try:
+        adat = int(_sor)
+        return True
+    except ValueError:
+        return False
+
+
+oraim = {"hétfő":0, "kedd":0, "szerda":0, "csütörtök":0, "péntek":0}
+for k in oraim:
+    while True:
+        adat = input("{}i órák száma: ".format(k))
+        if(szame(adat)):
+            oraim[k] = adat
+            break
+        else:
+            print("nope")
+            continue
+
+print("Óráid:")
+for k, v in oraim.items():
+    print("{}: {} óra".format(k, v))
