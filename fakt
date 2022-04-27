@@ -115,6 +115,10 @@ def szame(_sor):
         return False
 
 
+#valamivalamivalami
+
+
+
 oraim = {"hétfő":0, "kedd":0, "szerda":0, "csütörtök":0, "péntek":0}
 for k in oraim:
     while True:
@@ -129,3 +133,45 @@ for k in oraim:
 print("Óráid:")
 for k, v in oraim.items():
     print("{}: {} óra".format(k, v))
+
+
+def hetnapja(honap, nap):
+    napnev = ["vasárnap", "hétfő", "kedd", "szerda", "csütörtök","péntek","szombat"]
+    napszam = [0,31,59,90,120,151,181,212,243,273,304,335]
+    napsorszam = (napszam[honap-1] + nap) %7
+    return napnev[napsorszam]
+
+
+tNaplo = []
+
+with open("naplo.txt", encoding="utf8") as fSzoveg:
+    aktDatum = []
+    for sor in fSzoveg:
+        sor = sor.strip()
+        oszlopok = sor.split(" ")
+        if oszlopok[0] == "#":
+            #Datumos sor
+            aktDatum = [oszlopok[1], oszlopok[2]]
+        else:
+            #Neves sor
+            aktNev = [int(aktDatum[0]), int(aktDatum[1]), oszlopok[0]+" "+oszlopok[1], oszlopok[2]]
+            tNaplo.append(aktNev)
+
+print("2. feladat")
+print(len(tNaplo), "sor van a naplóban")
+
+igazolt = 0
+igazolatlan = 0
+for nev in tNaplo:
+    igazolt += nev[3].count('X')
+    igazolatlan += nev[3].count('I')
+print("3. feladat")
+print("Az igazolt hiányzások száma", igazolt, "az igazolatlanok száma", igazolatlan)
+
+
+print("5. feladat")
+x = int(input("a hónap sorszáma="))
+y = int(input("a nap sorszáma="))
+print("Azon a napon {} volt".format(hetnapja(x,y)))
+
+print("6. feladat")
