@@ -175,3 +175,36 @@ y = int(input("a nap sorszáma="))
 print("Azon a napon {} volt".format(hetnapja(x,y)))
 
 print("6. feladat")
+innap = input("a nap neve=")
+oraszam = int(input("az óra sorszáma="))
+aznapih = 0
+for a in tNaplo:
+    if hetnapja(a[0],a[1]) == innap:
+        if a[3][oraszam-1] == "X" or a[3][oraszam-1] == "I":
+            aznapih += 1
+print("Ekkor összesen {} óra hiányzás történt".format(aznapih))
+
+print("7. feladat")
+szotar = {}
+seged = 0
+for i in tNaplo:
+    seged = 0
+    if i[2] in szotar.keys():
+        seged = szotar[i[2]]
+        seged += (i[3].count("X")+i[3].count("I"))
+        szotar[i[2]] = seged
+    else:
+        szotar[i[2]] = (i[3].count("X")+i[3].count("I"))
+max=0
+for i in szotar:
+    if szotar[i] > max:
+        max = szotar[i]
+hianyzok = ""
+veszo = 0
+for key, value in szotar.items():
+    if value == max:
+        hianyzok += key
+        if veszo == 0:
+            hianyzok += ", "
+            veszo += 1
+print(hianyzok)
