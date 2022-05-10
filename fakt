@@ -219,3 +219,27 @@ print(hianyzok)
 #érettségi céges autók
 --------------------------------------
 
+tAdatok = []
+print("1. feladat")
+with open("autok.txt", encoding="utf8") as fSzoveg:
+    for sor in fSzoveg:
+        sor = sor.strip()
+        oszlopok = sor.split(" ")
+        tAdatok.append(oszlopok)
+
+print("2. feladat")
+for i in range(len(tAdatok)-1,0,-1):
+    if(tAdatok[i][5] == "0"):
+        print("{}. nap rendszám: {}".format(tAdatok[i][0], tAdatok[i][2]))
+        break
+
+print("3. feladat")
+nap = int(input("Nap: "))
+kibe = 0
+for i in tAdatok:
+    if int(i[0]) == nap:
+        if int(i[5]) == 0:
+            kibe = "ki"
+        else:
+            kibe = "be"
+        print(i[1], i[2], i[3], kibe)
