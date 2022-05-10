@@ -142,6 +142,11 @@ def hetnapja(honap, nap):
     return napnev[napsorszam]
 
 
+----------------------
+#érettségi hiányzások
+----------------------
+
+
 tNaplo = []
 
 with open("naplo.txt", encoding="utf8") as fSzoveg:
@@ -208,3 +213,9 @@ for key, value in szotar.items():
             hianyzok += ", "
             veszo += 1
 print(hianyzok)
+
+
+--------------------------------------
+#érettségi céges autók
+--------------------------------------
+
