@@ -225,21 +225,38 @@ with open("autok.txt", encoding="utf8") as fSzoveg:
     for sor in fSzoveg:
         sor = sor.strip()
         oszlopok = sor.split(" ")
-        tAdatok.append(oszlopok)
+        aktSor = [int(oszlopok[0]), oszlopok[1], oszlopok[2], int(oszlopok[3]), int(oszlopok[4]), int(oszlopok[5])]
+        tAdatok.append(aktSor)
 
 print("2. feladat")
 for i in range(len(tAdatok)-1,0,-1):
-    if(tAdatok[i][5] == "0"):
+    if(tAdatok[i][5] == 0):
         print("{}. nap rendszám: {}".format(tAdatok[i][0], tAdatok[i][2]))
         break
 
 print("3. feladat")
 nap = int(input("Nap: "))
-kibe = 0
+print("Forgalom a {}. napon:".format(nap))
 for i in tAdatok:
     if int(i[0]) == nap:
-        if int(i[5]) == 0:
-            kibe = "ki"
-        else:
-            kibe = "be"
-        print(i[1], i[2], i[3], kibe)
+        print(i[1], i[2], i[3], "ki" if i[5]==0 else "be")
+
+print("4. feladat")
+szotar = {}
+for i in tAdatok:
+    szotar[i[2]] = i[5]
+seged1 = 0
+for k, v in szotar.items():
+    if v == 0:
+        seged1 += 1
+print("A hónap végén {} autót nem hoztak vissza".format(seged1))
+
+print("5.feladat")
+stat = {}
+for i in tAdatok:
+    if i[2] in stat: #kulcs
+        stat[i[2]][1] = i[4]
+    else:
+        stat[i[2]] = [i[4], i[4]] #új kezdő és végállás renszámmal felvéve a szótárba
+for k,v in stat.items():
+    print("{} {} km".format(k, v[1]-v[0]))
